@@ -7,5 +7,5 @@ import { Component, ViewContainerRef, ComponentFactoryResolver } from '@angular/
 })
 export class AppComponent {
   title = 'rolebased';
-  constructor( vcr: ViewContainerRef, private cfr:ComponentFactoryResolver){}
+ 
 }

@@ -5,7 +5,7 @@ import { UserpageComponent } from './userpage.component';
 
 
 const routes: Routes = [
-  {path:'', component:UserpageComponent},
+  {path:'user-detail/:id', component:UserpageComponent},
  
 ];
 
