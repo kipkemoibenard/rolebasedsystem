@@ -1,9 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../service/auth.service';
 import { Todo } from '../todo/todo';
+import {TableModule} from 'primeng/table';
 
 
 @Component({
@@ -11,25 +12,41 @@ import { Todo } from '../todo/todo';
   templateUrl: './userpage.component.html',
   styleUrls: ['./userpage.component.css']
 })
-export class UserpageComponent {
-  userDetails:any=[];
-  user!:any;
-  http: any;
-  constructor(private service: AuthService, private router:Router) {
-    this.usersPresent()
-  }
+export class UserpageComponent implements OnInit {
+  public userDetails: Todo | undefined;
+  userId!: number;
+  loggedUser:Todo[] = [];
   
-  usersPresent(){
-    this.service.GetByCode(this.user).subscribe(res => {
+  
+  
+
+  constructor(private service: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
+    // this.usersPresent()
+   
+
+  }
+
+  ngOnInit(): void {
+    // @ts-ignore
+    this.userId = +this.activatedRoute.snapshot.paramMap.get("id");
+    console.log(this.userId);
+
+    this.usersPresent();
+  }
+  usersPresent() {
+    this.service.getByCode(this.userId).subscribe(res => {
       
-      this.userDetails=res;
+      this.loggedUser =Object.values(res);
+      console.log(this.loggedUser);
+   
+
     })
 
 
-    
+
   }
 
- onClick() {
+  onClick() {
     this.router.navigate(['login'])
   }
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Todo } from '../todo/todo';
@@ -14,12 +14,14 @@ export class AuthService {
 
 
   GetAll() {
-    return this.http.get(this.apiurl);
+    let token='';
+    let head_obj=new HttpHeaders().set("Authorization", "bearer"+token)
+    return this.http.get(this.apiurl,{headers:head_obj});
 
   }
 
-  GetByCode(id: any) {
-    return this.http.get(this.apiurl + '/',id);
+  getByCode(id: number):Observable<Todo[]> {
+    return this.http.get<Todo[]>(`${this.apiurl}/${id}`);
 
   }
 
@@ -42,7 +44,7 @@ export class AuthService {
     return localStorage.setItem('token', 'Jwt Token')
   }
 
-  remoeveToken(){
+  removeToken(){
     return localStorage.removeItem('token')
   }
 

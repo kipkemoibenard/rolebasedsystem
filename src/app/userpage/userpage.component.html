@@ -2,8 +2,8 @@
     <a href="#" (click)="onClick"><button pButton label="Logout" icon="pi pi-power-off"  [routerLink]="['/logout']"></button ></a>
 </p-menubar>
 <h2>USERS PAGE</h2>
-<p-table [value]="userDetails" [tableStyle]="{'min-width': '50rem'}" [paginator]="true" [rows]="5"
-responsiveLayout="stack" [breakpoint]="'960px'"> 
+<p-table [tableStyle]="{'min-width': '50rem'}" 
+responsiveLayout="stack" [breakpoint]="'960px'" [value]="loggedUser"> 
     <ng-template pTemplate="header">
         <tr>
             <th>Id</th>
@@ -13,13 +13,13 @@ responsiveLayout="stack" [breakpoint]="'960px'">
             <th>Role</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-userDetails>
+    <ng-template pTemplate="body"  *ngFor="let user of loggedUser"> 
         <tr>
-            <td>{{userDetails.id}}</td>
-            <td>{{userDetails.firstname}}</td>
-            <td>{{userDetails.lastname}}</td>
-            <td>{{userDetails.username}}</td>
-            <td>{{userDetails.role}}</td>
+            <td>{{user.id}}</td>
+            <td>{{user.firstname}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.role}}</td>
         </tr>
     </ng-template>
   </p-table>

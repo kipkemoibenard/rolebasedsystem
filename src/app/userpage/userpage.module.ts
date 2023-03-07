@@ -37,7 +37,6 @@ import { UserpageComponent } from './userpage.component';
     PanelModule,
     PasswordModule,
     InputTextModule,
-   
     TableModule,
     PaginatorModule
   ],
