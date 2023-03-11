@@ -8,10 +8,13 @@ import { UserpageComponent } from './userpage/userpage.component';
 
 
 const routes: Routes = [
-  {path:'', component:LoginComponent, canActivate:[AuthGuard]},
-  {path:'login', component:LoginComponent},
-  {path:'users', loadChildren: ()=> import('./userpage/userpage.module').then((m)=>m.UserpageModule)},
-  {path:'admin', loadChildren: ()=> import('./adminpage/adminpage.module').then((m)=>m.AdminpageModule)}
+  { path: '', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'users', loadChildren: () => import('./userpage/userpage.module').then((m) => m.UserpageModule) },
+  { path: 'admin', loadChildren: () => import('./adminpage/adminpage.module').then((m) => m.AdminpageModule) }
+  // used with authGuard
+  // { path: 'users', loadChildren: () => import('./userpage/userpage.module').then((m) => m.UserpageModule), canActivate: [AuthGuard] },
+  // { path: 'admin', loadChildren: () => import('./adminpage/adminpage.module').then((m) => m.AdminpageModule), canActivate: [AuthGuard] }
 
 ];
 

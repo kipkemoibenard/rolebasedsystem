@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import {TableModule} from 'primeng/table';
 import {PaginatorModule} from 'primeng/paginator';
 import { UserpageComponent } from './userpage.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -38,7 +39,8 @@ import { UserpageComponent } from './userpage.component';
     PasswordModule,
     InputTextModule,
     TableModule,
-    PaginatorModule
+    PaginatorModule,
+    RouterModule 
   ],
   providers: [],
   bootstrap: [UserpageComponent]

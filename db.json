@@ -101,6 +101,14 @@
       "username": "Yoghvc876vudi@yahoo.com",
       "role": "user",
       "password": "2448"
+    },
+    {
+      "id": 16,
+      "firstname": "John",
+      "lastname": "Nyakudi",
+      "username": "jonyaundi@gmail.com",
+      "role": "user",
+      "password": "1234"
     }
   ]
 }

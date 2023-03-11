@@ -23,10 +23,10 @@ export class AdminpageComponent {
   // }
 
   usersPresent(){
-    this.service.GetAll().subscribe(res => {
+    this.service.getAll().subscribe(res => {
       
       this.userDetails=res;
-    })
+    });
 
     
    

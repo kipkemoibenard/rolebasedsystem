@@ -48,7 +48,8 @@ import { JwtInterceptor } from './interceptor/jwt.interceptor';
     BrowserAnimationsModule,
     TableModule,
     PaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [
    { 

@@ -1,4 +1,9 @@
 <p-menubar>
+  <a href="#" (click)="onClick"><button pButton label="Logout" icon="pi pi-power-off"  [routerLink]="['/logout']"></button ></a>
+</p-menubar>
+<h2>USER PAGE</h2>
+
+<!-- <p-menubar>
     <a href="#" (click)="onClick"><button pButton label="Logout" icon="pi pi-power-off"  [routerLink]="['/logout']"></button ></a>
 </p-menubar>
 <h2>USERS PAGE</h2>
@@ -13,13 +18,54 @@ responsiveLayout="stack" [breakpoint]="'960px'" [value]="loggedUser">
             <th>Role</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body"  *ngFor="let user of loggedUser"> 
+ -->
+    <ng-template pTemplate="body"  *ngFor="let loggedUser"> 
         <tr>
-            <td>{{user.id}}</td>
-            <td>{{user.firstname}}</td>
-            <td>{{user.lastname}}</td>
-            <td>{{user.username}}</td>
-            <td>{{user.role}}</td>
+            <td>{{loggedUser.id}}</td>
+            <td>{{loggedUser.firstname}}</td>
+            <td>{{loggedUser.lastname}}</td>
+            <td>{{loggedUser.username}}</td>
+            <td>{{loggedUser.role}}</td>
         </tr>
     </ng-template>
-  </p-table>
+  <!-- </p-table> -->
+  
+<!-- 
+   <p-menubar>
+    <a href="#" (click)="onClick"><button pButton label="Logout" icon="pi pi-power-off"  [routerLink]="['/logout']"></button ></a>
+</p-menubar>
+   <h2>{{loggedUser}}  Details</h2><br>
+<div>
+  <form id="login" [formGroup]="loginForm" (ngSubmit)="ngOnInit()" value="loggedUser">
+  
+    <span>
+        <label >User Id:</label>
+      <input id="float-input" type="text" pInputText formControlName="loggedUser.id">
+    </span>
+    <br><br>
+    <span>
+        <label >Username:</label>
+      <input id="float-input" type="text" pInputText formControlName="loggedUser.username">
+    </span>
+    <br><br>
+   
+    <span class>
+        <label>First Name:</label>
+        <input id="float-input" type="text" pInputText formControlName="firstname">
+       
+      </span>
+   
+      <br><br>
+      <span> <label>Last Name:</label>
+        <input id="float-input" type="text" pInputText formControlName="lastname">
+       
+      </span>
+    
+      <br><br>
+      <span><label>Role:</label>
+        <input id="float-input" type="text" pInputText formControlName="role">
+        
+      </span>
+    
+  </form>
+</div> -->

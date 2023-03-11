@@ -13,10 +13,15 @@ export class AuthService {
 
 
 
-  GetAll() {
+  getAll() {
     let token='';
     let head_obj=new HttpHeaders().set("Authorization", "bearer"+token)
     return this.http.get(this.apiurl,{headers:head_obj});
+
+  }
+  getAllU() {
+
+    return this.http.get(this.apiurl);
 
   }
 
@@ -26,7 +31,7 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    return sessionStorage.getItem('username') != null;
+    return !!sessionStorage.getItem('token') 
   }
   GetUserRole() {
     return sessionStorage.getItem('role') != null ? sessionStorage.getItem('role')?.toString() : '';
@@ -34,6 +39,7 @@ export class AuthService {
 
   onLogin(obj:any):Observable<any>{
     return this.http.post(this.apiurl, obj);
+   
   }
 
   getToken(){

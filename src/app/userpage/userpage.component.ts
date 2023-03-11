@@ -1,10 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { AuthService } from '../service/auth.service';
 import { Todo } from '../todo/todo';
-import {TableModule} from 'primeng/table';
+import { TableModule } from 'primeng/table';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -15,16 +16,30 @@ import {TableModule} from 'primeng/table';
 export class UserpageComponent implements OnInit {
   public userDetails: Todo | undefined;
   userId!: number;
-  loggedUser:Todo[] = [];
-  
-  
-  
+  loggedUser: Todo[] = [];
+  // username: string | undefined;
+  // firstname: string | undefined;
+  // lastname: string | undefined;
+  // role: string | undefined;
+
+
+
 
   constructor(private service: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
     // this.usersPresent()
-   
 
+    id: Number
+  username: String
+  firstname: String
+  lastname:String
+  role: String
   }
+  loginForm = new FormGroup({
+    username: new FormControl(''),
+    firstname: new FormControl(''),
+    lastname: new FormControl(''),
+    role: new FormControl(''),
+  });
 
   ngOnInit(): void {
     // @ts-ignore
@@ -34,14 +49,20 @@ export class UserpageComponent implements OnInit {
     this.usersPresent();
   }
   usersPresent() {
-    this.service.getByCode(this.userId).subscribe(res => {
-      
-      this.loggedUser =Object.values(res);
+    this.service.getByCode(this.userId).subscribe((res:any[]) => {
+
+      this.loggedUser = Object.values(res);
       console.log(this.loggedUser);
-   
+
+      
+      
+      // this.loginForm.setValue({
+      //   id: this.loggedUser.id, username: this.loggedUser.username, firstname: this.loggedUser.firstname,
+      //   lastname: this.loggedUser.lastname, role: this.loggedUser.role
+      // });
+
 
     })
-
 
 
   }
