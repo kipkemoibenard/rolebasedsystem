@@ -17,10 +17,11 @@ export class UserpageComponent implements OnInit {
   public userDetails: Todo | undefined;
   userId!: number;
   loggedUser: Todo[] = [];
-  // username: string | undefined;
-  // firstname: string | undefined;
-  // lastname: string | undefined;
-  // role: string | undefined;
+  // loggedUser=null;
+  username: Todo[]=[];
+  firstname: string | undefined;
+  lastname: string | undefined;
+  role: string | undefined;
 
 
 
@@ -49,9 +50,10 @@ export class UserpageComponent implements OnInit {
     this.usersPresent();
   }
   usersPresent() {
-    this.service.getByCode(this.userId).subscribe((res:any[]) => {
+    this.service.getByCode(this.userId).subscribe((res:any) => {
 
       this.loggedUser = Object.values(res);
+      // this.loggedUser=res;
       console.log(this.loggedUser);
 
       

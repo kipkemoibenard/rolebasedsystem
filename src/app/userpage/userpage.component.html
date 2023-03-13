@@ -1,71 +1,36 @@
 <p-menubar>
-  <a href="#" (click)="onClick"><button pButton label="Logout" icon="pi pi-power-off"  [routerLink]="['/logout']"></button ></a>
+  <a href="#" (click)="onClick()"><button pButton label="Logout" icon="pi pi-power-off"
+      [routerLink]="['/logout']"></button></a>
 </p-menubar>
 <h2>USER PAGE</h2>
 
-<!-- <p-menubar>
-    <a href="#" (click)="onClick"><button pButton label="Logout" icon="pi pi-power-off"  [routerLink]="['/logout']"></button ></a>
-</p-menubar>
-<h2>USERS PAGE</h2>
-<p-table [tableStyle]="{'min-width': '50rem'}" 
-responsiveLayout="stack" [breakpoint]="'960px'" [value]="loggedUser"> 
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>User Name</th>
-            <th>Role</th>
-        </tr>
-    </ng-template>
- -->
-    <ng-template pTemplate="body"  *ngFor="let loggedUser"> 
-        <tr>
-            <td>{{loggedUser.id}}</td>
-            <td>{{loggedUser.firstname}}</td>
-            <td>{{loggedUser.lastname}}</td>
-            <td>{{loggedUser.username}}</td>
-            <td>{{loggedUser.role}}</td>
-        </tr>
-    </ng-template>
-  <!-- </p-table> -->
-  
-<!-- 
-   <p-menubar>
-    <a href="#" (click)="onClick"><button pButton label="Logout" icon="pi pi-power-off"  [routerLink]="['/logout']"></button ></a>
-</p-menubar>
-   <h2>{{loggedUser}}  Details</h2><br>
-<div>
-  <form id="login" [formGroup]="loginForm" (ngSubmit)="ngOnInit()" value="loggedUser">
-  
-    <span>
-        <label >User Id:</label>
-      <input id="float-input" type="text" pInputText formControlName="loggedUser.id">
-    </span>
-    <br><br>
-    <span>
-        <label >Username:</label>
-      <input id="float-input" type="text" pInputText formControlName="loggedUser.username">
-    </span>
-    <br><br>
-   
-    <span class>
-        <label>First Name:</label>
-        <input id="float-input" type="text" pInputText formControlName="firstname">
-       
-      </span>
-   
-      <br><br>
-      <span> <label>Last Name:</label>
-        <input id="float-input" type="text" pInputText formControlName="lastname">
-       
-      </span>
+<p-table [tableStyle]="{'min-width': '50rem'}" responsiveLayout="stack" [breakpoint]="'960px'">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>User Name</th>
+      <th>Role</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" *ngFor="let user of loggedUser">
+
+    <tr>
+      {{user.id}}
+      {{user.firstname}}
+      {{user.lastname}}
+      {{user.username}}
+      {{user.role}}
+    </tr>
     
-      <br><br>
-      <span><label>Role:</label>
-        <input id="float-input" type="text" pInputText formControlName="role">
-        
-      </span>
-    
-  </form>
-</div> -->
+
+    <!-- <tr>
+          <td *ngIf="user.username.length>0">{{user.id}}</td>username
+          <td *ngIf="user.username.length>0">{{user.firstname}}</td>firstname
+          <td *ngIf="user.username.length>0">{{user.lastname}}</td>
+          <td *ngIf="user.username.length>0">{{user.username}}</td>
+          <td *ngIf="user.username.length>0">{{user.role}}</td>
+      </tr> -->
+  </ng-template>
+</p-table>
