@@ -57,7 +57,7 @@ export class LoginComponent {
 
   ngOnInit(): void {
    this.service.setToken();
- 
+   this.onLogin()
 
    }
 

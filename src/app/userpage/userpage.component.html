@@ -4,7 +4,7 @@
 </p-menubar>
 <h2>USER PAGE</h2>
 
-<p-table [tableStyle]="{'min-width': '50rem'}" responsiveLayout="stack" [breakpoint]="'960px'">
+<!-- <p-table [tableStyle]="{'min-width': '50rem'}" responsiveLayout="stack" [breakpoint]="'960px'">
   <ng-template pTemplate="header">
     <tr>
       <th>Id</th>
@@ -22,7 +22,7 @@
       {{user.lastname}}
       {{user.username}}
       {{user.role}}
-    </tr>
+    </tr> -->
     
 
     <!-- <tr>
@@ -32,5 +32,8 @@
           <td *ngIf="user.username.length>0">{{user.username}}</td>
           <td *ngIf="user.username.length>0">{{user.role}}</td>
       </tr> -->
-  </ng-template>
-</p-table>
+  <!-- </ng-template>
+</p-table> -->
+<div>
+  <li>firstname: {{loggedUser?.firstname}}</li>
+</div>

@@ -25,8 +25,8 @@ export class AuthService {
 
   }
 
-  getByCode(id: number):Observable<Todo[]> {
-    return this.http.get<Todo[]>(`${this.apiurl}/${id}`);
+  getByCode(id: number):Observable<Todo> {
+    return this.http.get<Todo>(`${this.apiurl}/${id}`);
 
   }
 

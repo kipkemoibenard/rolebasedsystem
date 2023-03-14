@@ -16,7 +16,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class UserpageComponent implements OnInit {
   public userDetails: Todo | undefined;
   userId!: number;
-  loggedUser: Todo[] = [];
+  loggedUser: Todo | undefined;
   // loggedUser=null;
   username: Todo[]=[];
   firstname: string | undefined;
@@ -50,11 +50,12 @@ export class UserpageComponent implements OnInit {
     this.usersPresent();
   }
   usersPresent() {
-    this.service.getByCode(this.userId).subscribe((res:any) => {
+    this.service.getByCode(this.userId).subscribe((res:Todo) => {
 
-      this.loggedUser = Object.values(res);
-      // this.loggedUser=res;
-      console.log(this.loggedUser);
+      // this.loggedUser = Object.values(res);
+      this.loggedUser=res;
+      console.log(res);
+
 
       
       
